@@ -1,23 +1,23 @@
-# 🌟 Minha Jornada de Estágio na Compass.uol 🌟
+#  Minha Jornada de Estágio na Compassuol 
 
-Bem-vindo ao meu repositório! Aqui, você encontrará o registro completo da minha jornada de estágio na **Compass.uol**, com todas as atividades, desafios e aprendizados ao longo deste ciclo incrível. 📚🚀
+Bem-vindo ao meu repositório! Aqui, você encontrará o registro completo da minha jornada de estágio na **Compass.uol**, com todas as atividades, desafios e aprendizados ao longo deste ciclo incrível. 
 
 ## 📝 Sobre Este Repositório
 
-Este repositório contém todas as atividades, tarefas e projetos que executei durante o meu estágio, onde aprendi **Testes de Software**, **Desenvolvimento de APIs**, **Planejamento de Testes** e muito mais! 🔧💻
+Este repositório contém todas as atividades, tarefas e projetos que executei durante o meu estágio, onde aprendi **Testes de Software**, **Desenvolvimento de APIs**, **Planejamento de Testes** e muito mais! 💻
 
 ---
 
-## 🔥 O Que Você Vai Encontrar Aqui
+##  O Que Você Vai Encontrar Aqui
 
 📂 **Atividades e Projetos Realizados**  
 Aqui estão os detalhes de todas as atividades que realizei, com links para documentos e códigos de apoio.
 
-- **Atividade 1**: Construção de Histórias de Usuário 💡  
-- **Atividade 2**: Planejamento de Testes 🛠️  
-- **Atividade 3**: Análise de Requisitos 🔍  
-- **Atividade 4**: Testes de APIs REST ⚙️  
-- **Atividade 5**: Automação de Testes com Postman 🖥️
+- **Atividade 1**: Construção de Histórias de Usuário 
+- **Atividade 2**: Planejamento de Testes 
+- **Atividade 3**: Análise de Requisitos 
+- **Atividade 4**: Testes de APIs REST   
+- **Atividade 5**: Automação de Testes com Postman 
 
 🔍 **Documentação e Aprendizados**  
 Cada atividade inclui um resumo do que aprendi, junto com links para arquivos de **Documentação** e **Coleções do Postman**. Além disso, você encontrará o que foi explorado em cada fase do estágio, desde o **Planejamento** até a **Execução de Testes**.
@@ -31,11 +31,11 @@ Ao longo da jornada, eu coletei feedbacks e insights, tanto da minha Squad quant
 
 Durante meu estágio, trabalhei com várias ferramentas e tecnologias, incluindo:
 
-- **Git** e **GitHub** para versionamento de código 📊  
-- **Postman** para automação e testes de APIs 🖱️  
-- **Jira** para acompanhamento de tarefas e bugs 🐞  
-- **Swagger** para documentação de APIs 📄  
-- **IntelliJ IDEA** e **Visual Studio Code** para desenvolvimento 🖥️
+- **Git** e **GitHub** para versionamento de código   
+- **Postman** para automação e testes de APIs 
+- **Jira** para acompanhamento de tarefas e bugs  
+- **Swagger** para documentação de APIs 
+- **IntelliJ IDEA** e **Visual Studio Code** para desenvolvimento 
 
 ---
 
