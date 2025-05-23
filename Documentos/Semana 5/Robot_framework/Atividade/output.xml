@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.9 on win32)" generated="2025-05-20T00:11:17.404016" rpa="false" schemaversion="5">
+<suite id="s1" name="Meu Teste" source="C:\Users\rapha\OneDrive\Documentos\compassuol\Documentos\Semana 5\Robot_framework\Atividade\meu_teste.robot">
+<test id="s1-t1" name="Buscar no Google" line="5">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-20T00:11:22.221765" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com'.</msg>
+<arg>https://www.google.com</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-20T00:11:22.202852" elapsed="45.632580"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-20T00:12:07.836632" level="INFO">Typing text 'Robot Framework' into text field 'name=q'.</msg>
+<arg>name=q</arg>
+<arg>Robot Framework</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-20T00:12:07.836079" elapsed="1.943982"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>name=q</arg>
+<arg>ENTER</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-20T00:12:09.780634" elapsed="0.036201"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-20T00:12:12.897861" level="INFO">Slept 3 seconds.</msg>
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-20T00:12:09.817415" elapsed="3.080446"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-20T00:12:12.898445" elapsed="3.389086"/>
+</kw>
+<status status="PASS" start="2025-05-20T00:11:22.202256" elapsed="54.086219"/>
+</test>
+<status status="PASS" start="2025-05-20T00:11:17.405830" elapsed="58.884212"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Meu Teste" id="s1" pass="1" fail="0" skip="0">Meu Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
