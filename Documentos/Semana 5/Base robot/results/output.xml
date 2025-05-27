@@ -1,386 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.11.9 on win32)" generated="2025-05-21T17:23:32.842240" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.11.9 on win32)" generated="2025-05-27T12:17:39.367968" rpa="false" schemaversion="5">
 <suite id="s1" name="Base" source="C:\Users\rapha\OneDrive\Documentos\compassuol\Documentos\Semana 5\Base robot\base.robot">
-<test id="s1-t1" name="GET Todos os Usuarios - 200" line="10">
+<test id="s1-t1" name="Cenario: Post Criar Produto 201" line="47">
 <kw name="Criar Sessao">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-05-21T17:23:33.216473" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-05-27T12:17:39.981368" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>serverest</arg>
 <arg>${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-05-21T17:23:33.216473" elapsed="0.000776"/>
+<status status="PASS" start="2025-05-27T12:17:39.981368" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-05-21T17:23:33.216473" elapsed="0.000776"/>
+<status status="PASS" start="2025-05-27T12:17:39.981368" elapsed="0.000000"/>
 </kw>
-<kw name="GET Endpoint /Usuarios">
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-05-21T17:23:33.794428" level="INFO">GET Request : url=https://serverest.dev/usuarios 
- path_url=/usuarios 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
+<kw name="POST Endpoint /produtos" owner="produtos_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-27T12:17:39.981368" level="INFO">&amp;{header} = { authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4MzU4NzgwLCJleHAiOjE3NDgzNTkzODB9.-pJB2s7Stb0NL37dZLI_jsUDnF2nxUw5aR5...</msg>
+<var>&amp;{header}</var>
+<arg>authorization=Bearer ${token_auth}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-27T12:17:39.981368" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-27T12:17:39.981368" level="INFO">&amp;{payload} = { nome=MouseTech | preco=400 | descricao=MouseTech | quantidade=100 }</msg>
+<var>&amp;{payload}</var>
+<arg>nome=MouseTech</arg>
+<arg>preco=400</arg>
+<arg>descricao=MouseTech</arg>
+<arg>quantidade=100</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-27T12:17:39.981368" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-27T12:17:40.344072" level="INFO">POST Request : url=https://serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4MzU4NzgwLCJleHAiOjE3NDgzNTkzODB9.-pJB2s7Stb0NL37dZLI_jsUDnF2nxUw5aR5qEVPfqQw', 'Content-Length': '84', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "MouseTech", "preco": "400", "descricao": "MouseTech", "quantidade": "100"}' 
  </msg>
-<msg time="2025-05-21T17:23:33.794428" level="INFO">GET Response : url=https://serverest.dev/usuarios 
- status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'f728e815775b23700d26fe1098de52b8', 'date': 'Wed, 21 May 2025 20:23:32 GMT', 'server': 'Google Frontend', 'Content-Length': '55976'} 
+<msg time="2025-05-27T12:17:40.344072" level="INFO">POST Response : url=https://serverest.dev/produtos 
+ status=201, reason=Created 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': 'fcc3e3b9f8d087bc40de8d2716d751ba;o=1', 'date': 'Tue, 27 May 2025 15:17:40 GMT', 'server': 'Google Frontend', 'Content-Length': '82'} 
  body={
-    "quantidade": 253,
-    "usuarios": [
-        {
-            "nome": "User Number.304",
-            "email": "email.304@qa.com",
-            "password": "test",
-            "administrador": "true",
-            "_id": "0JzE0jI0RtGgMnt6"
-        },
-        {
-            "nome": "Usuário Teste 1747837469831",
-            "email": "usuario1747837469831@teste.com",
-            "password": "teste123",
-            "administrador": "true",
-            "_id": "0ikpOcj3uIkt6sAd"
-        },
-        {
-            "nome": "Fulano da Silva",
-            "email": "fulano@qa.com",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "0uxuPY0cbmQhpEz1"
-        },
-        {
-            "nome": "Usuário Fixture",
-            "email": "usuario.fixture_1747829401869@mail.com",
-            "password": "Senha123",
-            "administrador": "false",
-            "_id": "109lyyoa7TCj7O6c"
-        },
-        {
-            "nome": "Alléfe QA",
-            "email": "allefe_1747846319555@qa.com",
-            "password": "teste123",
-            "administrador": "true",
-            "_id": "1OZmxImdaFWMWFA8"
-        },
-        {
-            "nome": "Isaiah_Wisozk69",
-            "email": "Mackenzie64@hotmail.com",
-            "password": "287721162",
-            "administrador": "true",
-            "_id": "1Q34PM7YBaedZZLm"
-        },
-        {
-            "nome": "Corey Rice Sr.",
-            "email": "Lauretta86@gmail.com",
-            "password": "kqwPr0N3gHNktRe",
-            "administrador": "true",
-            "_id": "27vQYMhMu6YOxuNl"
-        },
-        {
-            "nome": "Testador832",
-            "email": "testador832@qa.io",
-            "password": "12345",
-            "administrador": "true",
-            "_id": "2Hzhg7lBW1tbNGAj"
-        },
-        {
-            "nome": "Vitor Carrasco",
-            "email": "vitorfcarrasco@gmail.com",
-            "password": "123456",
-            "administrador": "true",
-            "_id": "2MzKDzxcRV6lbOKc"
-        },
-        {
-            "nome": "Maria Usuária 1747830562921",
-            "email": "maria1747830562921@teste.com",
-            "password": "teste123",
-            "administrador": "false",
-            "_id": "2mB3jxNgIiT5P5qC"
-        },
-        {
-            "nome": "Chris Erdman-Bahringer",
-            "email": "Tiara_Jacobson@hotmail.com",
-            "password": "X5Oyh0L4Ngvdwfn",
-            "administrador": "true",
-            "_id": "2o71J4ATXqewMtGF"
-        },
-        {
-            "nome": "Brian Farrell",
-            "email": "Savion_Hintz40@hotmail.com",
-            "password": "n_NzbnML6dRqIg3",
-            "administrador": "false",
-            "_id": "2u06BeUP7taPqoug"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "gsbuqgud@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "3899wTly8667h5oF"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "rjviwwgx@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "38yCCXHALc8JuTxp"
-        },
-        {
-            "nome": "Mauricio Avila",
-            "email": "soaes_mauricio@outlook.com",
-            "password": "\"desafio123\"",
-            "administrador": "true",
-            "_id": "3PFmCimOZ2Qx62GM"
-        },
-        {
-            "nome": " user Number 6712",
-            "email": "name.6712@qa.com",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "3vEsvaq1qD3417De"
-        },
-        {
-            "nome": "Mauricio Avila",
-            "email": "soaes_auricicc@outlook.com",
-            "password": "\"desafio123\"",
-            "administrador": "true",
-            "_id": "41NPsFZ9AWBVuYvi"
-        },
-        {
-            "nome": "a",
-            "email": "Juan12@teste.com",
-            "password": "Juan1",
-            "administrador": "true",
-            "_id": "4DvHWZN536CgYIKH"
-        },
-        {
-            "nome": "Dr. Victor Kuhn Jr.",
-            "email": "Tess.Lesch9@yahoo.com",
-            "password": "FZshHPYkHRe2hoL",
-            "administrador": "false",
-            "_id": "528PwXtIWYgfEXzx"
-        },
-        {
-            "nome": "Bob S",
-            "email": "bobs@qa.com.br",
-            "password": "test",
-            "administrador": "true",
-            "_id": "5tHt89DLi3b09m17"
-        },
-        {
-            "nome": "Bennie.Waters",
-            "email": "Lorenz_Block@yahoo.com",
-            "password": "286887115",
-            "administrador": "true",
-            "_id": "5wqxS9cq7h501yy5"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "umsktelj@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "60j2X8cmPSHukrnX"
-        },
-        {
-            "nome": "Henrique Nogueira",
-            "email": "henriquewn@gmail.com",
-            "password": "12345",
-            "administrador": "true",
-            "_id": "677UGJCvorBOyD7z"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "wwnzthfm@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "6MZJ8iDCE6SQ9FXH"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "dqlozakh@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "70eVRBaTx6smdMtC"
-        },
-        {
-            "nome": "Sr. Pedro Rocha",
-            "email": "samateus@example.net",
-            "password": "123456",
-            "administrador": "true",
-            "_id": "736v56asmaX4Pses"
-        },
-        {
-            "nome": "Juan Test",
-            "email": "Juan121231@teste.com",
-            "password": "Juan1",
-            "administrador": "true",
-            "_id": "78Px0QFBocm2wGef"
-        },
-        {
-            "nome": "Titi da Silva",
-            "email": "titi@qa.com.br",
-            "password": "teste",
-            "administrador": "true",
-            "_id": "7QArDYhmLiOiSiVm"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "pfopovsu@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "7pXXRWrITuYElWJY"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "okuktahg@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "89TfOGRcCFONKCtN"
-        },
-        {
-            "nome": "User Number.725",
-            "email": "name.725@qa.com",
-            "password": "test",
-            "administrador": "true",
-            "_id": "8KoqK8wtWAnFcxcb"
-        },
-        {
-            "nome": "Juan 5d308c70-211f-408c-b797-327cbb58f2d0",
-            "email": "123e52e6-6858-4cb0-bb7f-cb7e8d62af82@email.com",
-            "password": "pass0c82f622-bf36-4b85-94f3-a7159443298d",
-            "administrador": "true",
-            "_id": "8Y256XDHi9VIMVaB"
-        },
-        {
-            "nome": "Juan TestDos",
-            "email": "Juan112121qwqw@teste.com",
-            "password": "a",
-            "administrador": "true",
-            "_id": "8gae4sXM1RS5VW3H"
-        },
-        {
-            "nome": "Sophia Reichel DDS",
-            "email": "Caitlyn55@gmail.com",
-            "password": "BTw6JP15GkrijH5",
-            "administrador": "true",
-            "_id": "90h9lOTIMCO1TFcS"
-        },
-        {
-            "nome": "Pedro QA",
-            "email": "lwaubtbq@qa.com.br",
-            "password": "0123456789",
-            "administrador": "true",
-            "_id": "9AvxiPp1CFCMaxx6"
-        },
-        {
-            "nome": "Mauricio Avila",
-            "email": "soarees_mauricio@outlook.com",
-            "password": "\"desafio123\"",
-            "administrador": "true",
-            "_id": "9ESjwj6Df5JZ4i94"
-        },
-        {
-            "nome": "Ignacio Breitenberg",
-            "email": "Robyn52@hotmail.com",
-            "password": "yO8tQl01ozl8tXQ",
-            "administrador": "true",
-            "_id": "9Oe98mdLPANPHddR"
-        },
-        {
-            "nome": "Alléfe QA",
-            "email": "allefe_1747834772276@qa.com",
-            "password": "teste123",
-            "administrador": "true",
-            "_id": "9V7JWGN6xBogckpv"
-        },
-        {
-            "nome": "Maria Teste",
-            "email": "maria1747844934344@teste.com",
-            "password": "senha321",
-            "administrador": "false",
-            "_id": "9YfabDu64ta6QQcl"
-        },
-        {
-            "nome": "Célio Lopes",
-            "email": "celiolopescarvalho1@gmail.com",
-            "password": "teste123",
-            "administrador": "true",
-            "_id": "9oiUBoZsjyEBSIaG"
-        },
-        {
-            "nome": "Dr. Hubert VonRueden",
-            "email": "Michelle_Hayes@hotmail.com",
-            "password": "HRrkjIF7naUZqGC",
-            "administrador": "false",
-            "_id": "AOxEE84bOYbArAiU"
-        },
-        {
-            "nome": "Login Incorreto",
-            "email": "valido1747824668020@teste.com",
-            "password": "teste123",
-            "administrador": "true",
-            "_id": "AXPIaJa6TkHL6prs"
-        },
-        {
-            "nome": "Clay Daugherty",
-            "email": "Joanie64@yahoo.com",
-            "password": "w57nsQlDBCw5N4x",
-            "administrador": "false",
-            "_id": "AbKQCrTAc6h0Xgr7"
-        },
-        {
-            "nome": "Arlene Becker",
-            "email": "Garret_Boehm@gmail.com",
-            "password": "MeveXSi7N0yogTN",
-            "administrador": "false",
-            "_id": "Ad3miysb0L9dh6cU"
-        },
-        {
-            "nome": "Tiago",
-            "email": "tiagoprado@qa.com",
-            "password": "Nova1010-",
-            "administrador": "true",
-            "_id": "AeMB5bSzdllUP8n1"
-        },
-        {
-            "nome": "Fulano da Silva",
-            "email": "jxhm@emailteste.com",
-            "p... (set the log level to DEBUG or TRACE to see the full content) 
+    "message": "Cadastro realizado com sucesso",
+    "_id": "5jBiDEzVJqPB7v4w"
+} 
  </msg>
-<msg time="2025-05-21T17:23:33.794978" level="INFO">C:\Users\rapha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-05-27T12:17:40.344072" level="INFO">C:\Users\rapha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-05-21T17:23:33.795537" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T12:17:40.344072" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/usuarios</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-21T17:23:33.217249" elapsed="0.578288"/>
+<arg>/produtos</arg>
+<arg>json=&amp;{payload}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-05-27T12:17:39.981368" elapsed="0.362704"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-27T12:17:40.344072" elapsed="0.010668"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-21T17:23:33.795537" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T12:17:40.354740" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-21T17:23:33.795537" elapsed="0.000000"/>
+<status status="PASS" start="2025-05-27T12:17:40.354740" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-05-21T17:23:33.217249" elapsed="0.578819"/>
+<status status="PASS" start="2025-05-27T12:17:39.981368" elapsed="0.373372"/>
 </kw>
-<kw name="Validar Status Code">
+<kw name="Validar Status Code" owner="usuario_keywords">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-21T17:23:33.796068" elapsed="0.000543"/>
+<status status="PASS" start="2025-05-27T12:17:40.354740" elapsed="0.000000"/>
 </kw>
-<arg>200</arg>
-<status status="PASS" start="2025-05-21T17:23:33.796068" elapsed="0.000543"/>
+<arg>201</arg>
+<status status="PASS" start="2025-05-27T12:17:40.354740" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-05-21T17:23:33.215803" elapsed="0.581452"/>
+<tag>POSTPRODUTO</tag>
+<status status="PASS" start="2025-05-27T12:17:39.981368" elapsed="0.373372"/>
 </test>
 <doc>Arquivo simples para requisições HTTP em APIs</doc>
-<status status="PASS" start="2025-05-21T17:23:32.843948" elapsed="0.953904"/>
+<status status="PASS" start="2025-05-27T12:17:39.381838" elapsed="0.972902"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">POSTPRODUTO</stat>
 </tag>
 <suite>
 <stat name="Base" id="s1" pass="1" fail="0" skip="0">Base</stat>
