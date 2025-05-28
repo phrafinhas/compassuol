@@ -1,45 +1,69 @@
-# 🚀 Testes Automatizados da API ReqRes
+# Testes Automatizados da API ReqRes
 
-Este projeto contém testes automatizados da API pública [ReqRes](https://reqres.in/), uma API fake usada para praticar requisições REST. Os testes foram criados usando **Robot Framework** para garantir que as operações básicas da API estão funcionando corretamente.
+Este projeto contém testes automatizados da API pública [ReqRes](https://reqres.in/), uma API REST para testes e prototipação. Os testes foram implementados usando **Robot Framework** para validar as operações CRUD e autenticação da API.
 
----
+## Sobre o Projeto
 
-## 🧪 O que testamos?
+O projeto consiste em testes automatizados que validam as seguintes operações na API ReqRes:
+- Registro de usuários
+- Login de usuários
+- Consulta de usuários (lista e individual)
+- Atualização de usuários (PUT e PATCH)
+- Exclusão de usuários
 
-1. **Registrar Usuário com Dados Válidos** ✅  
-   - Envia email e senha válidos para registrar um novo usuário.  
-   - Verifica se o servidor retorna o código `200 OK` e um token no corpo da resposta.
+## Melhorias Implementadas com Amazon Q
 
-2. **Registrar Usuário com Dados Incompletos** ⚠️  
-   - Tenta registrar usuário sem email e senha.  
-   - Espera receber erro `400 Bad Request` e mensagem de erro informando dados faltantes.
+O código foi otimizado com a ajuda do Amazon Q, realizando as seguintes melhorias:
 
-3. **Obter Usuários** 🔍  
-   - Faz uma requisição para listar usuários cadastrados.  
-   - Verifica se o código retornado é `200 OK`.
+1. **Correção de Referências Circulares**:
+   - Removidas referências circulares entre arquivos de keywords e testes
+   - Eliminados problemas de importação que causavam falhas na execução
 
-4. **Deletar Usuário** 🗑️  
-   - Deleta um usuário existente pelo seu ID.  
-   - Espera o código `204 No Content`, confirmando exclusão bem-sucedida.
+2. **Atualização de Sintaxe Depreciada**:
+   - Substituição da sintaxe `[Return]` pela nova sintaxe `RETURN` em todos os keywords
+   - Adequação ao padrão do Robot Framework 7.x
 
-5. **Atualizar Usuário com PUT** ✏️  
-   - Atualiza os dados (nome e cargo) de um usuário específico.  
-   - Valida se o código é `200 OK` e se a data da atualização (`updatedAt`) está presente no retorno.
+3. **Adição de Bibliotecas Necessárias**:
+   - Inclusão das bibliotecas `RequestsLibrary` e `Collections` em todos os arquivos de keywords
 
----
+## Estrutura do Projeto
 
-## ⚙️ Tecnologias usadas
+```
+Robot teste/
+├── keywords/         # Keywords organizadas por tipo de operação
+├── support/          # Arquivos de configuração
+├── testes/           # Casos de teste
+└── results/          # Relatórios de execução
+```
 
-- **Robot Framework** - ferramenta para automação de testes  
-- **RequestsLibrary** - biblioteca Robot para requisições HTTP  
-- API pública [ReqRes](https://reqres.in/)
+## Como Executar os Testes
 
----
+Para executar os testes, navegue até o diretório do projeto e execute:
 
-## 📋 Como rodar os testes
+```bash
+# Navegue até o diretório do projeto
+cd "Robot teste"
 
-1. Instale o Robot Framework e RequestsLibrary:
-   ```bash
-   pip install robotframework
-   pip install robotframework-requests
-   execute :   robot tests.robot
+# Execute todos os testes
+robot -d results testes/tests.robot
+
+# Execute testes por tag específica
+robot -d results -i positivo testes/tests.robot
+robot -d results -i registro testes/tests.robot
+```
+
+## Requisitos
+
+- Robot Framework 7.x
+- Python 3.x
+- Biblioteca RequestsLibrary
+
+## Tags Disponíveis
+
+- `registro`: Testes de registro de usuários
+- `autenticacao`: Testes de login
+- `consulta`: Testes de obtenção de dados
+- `atualizacao`: Testes de atualização de dados
+- `exclusao`: Testes de exclusão
+- `positivo`: Testes de cenários de sucesso
+- `negativo`: Testes de cenários de falha
