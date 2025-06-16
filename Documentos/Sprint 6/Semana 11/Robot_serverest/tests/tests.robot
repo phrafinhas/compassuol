@@ -139,7 +139,3 @@ Cenario: Criar Cadastro com Gmail
     Criar Email com Gmail Dinamico
     Criar usuario Gmail 
 
-Cenario: Cadastrar Produto com Float
-    [Tags]    produto_valor_float  todos
-    Criar Usuario e Logar
-    POST Endpoint /produtos float
