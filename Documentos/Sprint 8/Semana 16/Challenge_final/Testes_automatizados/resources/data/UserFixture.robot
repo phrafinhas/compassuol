@@ -10,5 +10,3 @@ Usuário fixo
     ...    email=raphael@email.com
     ...    password=123456
     [Return]    ${user}
-
-    

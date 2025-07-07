@@ -1,0 +1,5189 @@
+{
+	"info": {
+		"_postman_id": "1af4b78d-69f5-4abb-a96b-4bad80b7b9bf",
+		"name": "Cinema App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44514374",
+		"_collection_link": "https://bug-busters-4902.postman.co/workspace/Challenge-3~ff784b49-5d1b-4897-85f3-d0a79395befe/collection/44514374-1af4b78d-69f5-4abb-a96b-4bad80b7b9bf?action=share&source=collection_link&creator=44514374"
+	},
+	"item": [
+		{
+			"name": "Users (Admin Only)",
+			"item": [
+				{
+					"name": "Get All Users - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users  - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{invalidUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{invalidUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - 200",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nome Modificado Pelo Admin\",\n    \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - 409",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nome Modificado Pelo Admin\",\n    \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nome Modificado Pelo Admin\",\n    \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{invalidUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{invalidUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nome Modificado Pelo Admin\",\n    \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nome Modificado Pelo Admin\",\n    \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"123\",\n    \"role\": \"uer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - 409",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{invalidUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{invalidUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{usuario_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gerenciamento de usuários. Requerem permissão de Admin."
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register a new user - 201",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// 🧼 Limpa variáveis antigas (opcional mas recomendado)\r",
+									"pm.environment.unset(\"user_nome\");\r",
+									"pm.environment.unset(\"user_email\");\r",
+									"pm.environment.unset(\"user_senha\");\r",
+									"\r",
+									"// 🔢 Gera número aleatório\r",
+									"let randomInt = Math.floor(Math.random() * 10000);\r",
+									"\r",
+									"// 👤 Gera dados válidos\r",
+									"let nome = `Usuario_${randomInt}`;\r",
+									"let email = `usuario${randomInt}@teste.com`;\r",
+									"let senha = `senha${randomInt}`;\r",
+									"\r",
+									"// 💾 Salva como variáveis de ambiente\r",
+									"pm.environment.set(\"user_nome\", nome);\r",
+									"pm.environment.set(\"user_email\", email);\r",
+									"pm.environment.set(\"user_senha\", senha);\r",
+									"\r",
+									"// 🔍 Loga no console do Postman\r",
+									"console.log(\"👤 Nome:\", nome);\r",
+									"console.log(\"📧 Email:\", email);\r",
+									"console.log(\"🔒 Senha:\", senha);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Tenta capturar os dados que foram enviados no body da requisição\r",
+									"let body = pm.request.body.raw ? JSON.parse(pm.request.body.raw) : {};\r",
+									"\r",
+									"let nome = body.name;\r",
+									"let email = body.email;\r",
+									"let senha = body.password;\r",
+									"\r",
+									"// Armazena os dados em variáveis de ambiente\r",
+									"pm.environment.set(\"usuario_nome_final\", nome);\r",
+									"pm.environment.set(\"usuario_email_final\", email);\r",
+									"pm.environment.set(\"usuario_senha_final\", senha);\r",
+									"\r",
+									"console.log(\"✅ Dados de cadastro armazenados:\");\r",
+									"console.log(\"Nome:\", nome);\r",
+									"console.log(\"Email:\", email);\r",
+									"console.log(\"Senha:\", senha);\r",
+									"\r",
+									"// Também salva ID e token, se a resposta contiver\r",
+									"let response = pm.response.json();\r",
+									"let data = response.data;\r",
+									"\r",
+									"if (data && data._id) {\r",
+									"    pm.environment.set(\"usuario_id\", data._id);\r",
+									"    console.log(\"ID salvo:\", data._id);\r",
+									"}\r",
+									"if (data && data.token) {\r",
+									"    pm.environment.set(\"usuario_token\", data.token);\r",
+									"    console.log(\"Token salvo:\", data.token);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{user_nome}}\",\r\n  \"email\": \"{{user_email}}\",         \r\n  \"password\": \"{{user_senha}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{register}}",
+							"host": [
+								"{{register}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register a new user - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{user_nome_final}}\",\r\n  \"email\": \"{{user_email_final}}\",         \r\n  \"password\": \"{{user_senha_final}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{register}}",
+							"host": [
+								"{{register}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login a user - 200",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Tentando login com:\");\r",
+									"console.log(\"Email:\", pm.environment.get(\"usuario_email_final\"));\r",
+									"console.log(\"Senha:\", pm.environment.get(\"usuario_senha_final\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Extrai o JSON da resposta\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Verifica se a resposta tem os dados esperados\r",
+									"if (response._id && response.token) {\r",
+									"    // Salva o ID do usuário na variável de ambiente\r",
+									"    pm.environment.set(\"usuario_id\", response._id);\r",
+									"    \r",
+									"    // Salva o token Bearer na variável de ambiente\r",
+									"    pm.environment.set(\"usuario_token\", response.token);\r",
+									"    \r",
+									"    console.log(\"✅ ID do usuário salvo:\", response._id);\r",
+									"    console.log(\"✅ Token salvo:\", response.token);\r",
+									"} else {\r",
+									"    console.warn(\"⚠️ Resposta não contém _id ou token.\");\r",
+									"}\r",
+									"\r",
+									"// Testa o status code para garantir login OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{usuario_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{usuario_email_final}}\",\r\n  \"password\": \"{{usuario_senha_final}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login a user - 400",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"Tentando login com:\");\r",
+									"console.log(\"Email:\", pm.environment.get(\"usuario_email_final\"));\r",
+									"console.log(\"Senha:\", pm.environment.get(\"usuario_senha_final\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Extrai o JSON da resposta\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Verifica se a resposta tem os dados esperados\r",
+									"if (response._id && response.token) {\r",
+									"    // Salva o ID do usuário na variável de ambiente\r",
+									"    pm.environment.set(\"usuario_id\", response._id);\r",
+									"    \r",
+									"    // Salva o token Bearer na variável de ambiente\r",
+									"    pm.environment.set(\"usuario_token\", response.token);\r",
+									"    \r",
+									"    console.log(\"✅ ID do usuário salvo:\", response._id);\r",
+									"    console.log(\"✅ Token salvo:\", response.token);\r",
+									"} else {\r",
+									"    console.warn(\"⚠️ Resposta não contém _id ou token.\");\r",
+									"}\r",
+									"\r",
+									"// Testa o status code para garantir login OK\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{usuario_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"rafael@gmail.com\",\r\n  \"password\": \"{{usuario_senha_final}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginAdmin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response should contain token\", function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(responseData.data).to.have.property('token');",
+									"    pm.collectionVariables.set(\"adminToken\", responseData.data.token);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/auth/login",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Realiza o login do usuário admin (criado via seed) e salva o token na variável `adminToken`."
+					},
+					"response": []
+				},
+				{
+					"name": "Update user profile - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{usuario_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"rafael\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/auth/profile",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user profile - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/me",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						},
+						"description": "Busca o perfil do usuário atualmente autenticado."
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user profile - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/v1/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"me"
+							]
+						},
+						"description": "Busca o perfil do usuário atualmente autenticado."
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user profile - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "abc.def.ghi",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/v1/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"me"
+							]
+						},
+						"description": "Busca o perfil do usuário atualmente autenticado."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Get all movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response should be an array of movies\", function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(responseData.success).to.be.true;",
+									"    pm.expect(responseData.data).to.be.an('array');",
+									"    if (responseData.data.length > 0) {",
+									"        pm.collectionVariables.set(\"movieId\", responseData.data[0]._id);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}api/v1/movies",
+							"host": [
+								"{{URL}}api"
+							],
+							"path": [
+								"v1",
+								"movies"
+							]
+						},
+						"description": "Busca todos os filmes disponíveis. Salva o ID do primeiro filme na variável `movieId` para ser usado em outros testes."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movie By ID - 200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/movies/{{movieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{movieId}}"
+							]
+						},
+						"description": "Busca os detalhes de um filme específico usando o `movieId` salvo da requisição 'Get All Movies'."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movie By ID - 400",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies/{{invalidMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{invalidMovieId}}"
+							]
+						},
+						"description": "Busca os detalhes de um filme específico usando o `movieId` salvo da requisição 'Get All Movies'."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new movie - 201",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should create movie and return 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"const res = pm.response.json();\r",
+									"if(res.data) {\r",
+									"    pm.collectionVariables.set(\"newMovieId\", res.data._id);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Filme de Teste {{$randomInt}}\",\r\n    \"synopsis\": \"Uma sinopse de teste para o filme criado via Postman.\",\r\n    \"director\": \"Diretor Fictício\",\r\n    \"genres\": [\"Ação\", \"Teste\"],\r\n    \"duration\": 125,\r\n    \"classification\": \"PG-13\",\r\n    \"poster\": \"test.jpg\",\r\n    \"releaseDate\": \"2025-01-01T00:00:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new movie - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should create movie and return 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"const res = pm.response.json();\r",
+									"if(res.data) {\r",
+									"    pm.collectionVariables.set(\"newMovieId\", res.data._id);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"\",\r\n    \"synopsis\": \"Uma sinopse de teste para o filme criado via Postman.\",\r\n    \"director\": \"Diretor Fictício\",\r\n    \"genres\": [\"Ação\", \"Teste\"],\r\n    \"duration\": 125,\r\n    \"classification\": \"PG-13\",\r\n    \"poster\": \"test.jpg\",\r\n    \"releaseDate\": \"2025-01-01T00:00:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new movie - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should create movie and return 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"const res = pm.response.json();\r",
+									"if(res.data) {\r",
+									"    pm.collectionVariables.set(\"newMovieId\", res.data._id);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "123123123132",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"\",\r\n    \"synopsis\": \"Uma sinopse de teste para o filme criado via Postman.\",\r\n    \"director\": \"Diretor Fictício\",\r\n    \"genres\": [\"Ação\", \"Teste\"],\r\n    \"duration\": 125,\r\n    \"classification\": \"PG-13\",\r\n    \"poster\": \"test.jpg\",\r\n    \"releaseDate\": \"2025-01-01T00:00:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new movie - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should create movie and return 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"const res = pm.response.json();\r",
+									"if(res.data) {\r",
+									"    pm.collectionVariables.set(\"newMovieId\", res.data._id);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"\",\r\n    \"synopsis\": \"Uma sinopse de teste para o filme criado via Postman.\",\r\n    \"director\": \"Diretor Fictício\",\r\n    \"genres\": [\"Ação\", \"Teste\"],\r\n    \"duration\": 125,\r\n    \"classification\": \"PG-13\",\r\n    \"poster\": \"test.jpg\",\r\n    \"releaseDate\": \"2025-01-01T00:00:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie (Admin) - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/movies/{{newMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{newMovieId}}"
+							]
+						},
+						"description": "Exclui um filme criado para teste. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie (Admin) - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/movies/{{invalidMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{invalidMovieId}}"
+							]
+						},
+						"description": "Exclui um filme criado para teste. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie (Admin) - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/movies/{{newMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{newMovieId}}"
+							]
+						},
+						"description": "Exclui um filme criado para teste. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie (Admin) - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/movies/{{newMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{newMovieId}}"
+							]
+						},
+						"description": "Exclui um filme criado para teste. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie (Admin) - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Filme de Teste Atualizado {{$randomInt}}\",\n    \"duration\": 130\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies/{{newMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{newMovieId}}"
+							]
+						},
+						"description": "Atualiza um filme existente. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie (Admin) - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Filme de Teste Atualizado {{$randomInt}}\",\n    \"duration\": 130\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies/{{newMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{newMovieId}}"
+							]
+						},
+						"description": "Atualiza um filme existente. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie (Admin) - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Filme de Teste Atualizado {{$randomInt}}\",\n    \"duration\": 130\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies/{{newMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{newMovieId}}"
+							]
+						},
+						"description": "Atualiza um filme existente. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie (Admin) - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Filme de Teste Atualizado {{$randomInt}}\",\n    \"duration\": 130\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies/{{invalidMovieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{invalidMovieId}}"
+							]
+						},
+						"description": "Atualiza um filme existente. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie (Admin) - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"\",\n    \"duration\": 130\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/movies/{{movieId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"movies",
+								"{{movieId}}"
+							]
+						},
+						"description": "Atualiza um filme existente. Requer autenticação de Admin."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Get All Sessions - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response should be an array of sessions\", function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(responseData.success).to.be.true;",
+									"    pm.expect(responseData.data).to.be.an('array');",
+									"    if (responseData.data.length > 0) {",
+									"        pm.collectionVariables.set(\"sessionId\", responseData.data[0]._id);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						},
+						"description": "Busca todas as sessões disponíveis. Salva o ID da primeira sessão na variável `sessionId`."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Session By ID - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						},
+						"description": "Busca detalhes de uma sessão específica."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Session By ID - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{invalidSession}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{invalidSession}}"
+							]
+						},
+						"description": "Busca detalhes de uma sessão específica."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Session Seats (Admin) - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}/reset-seats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}",
+								"reset-seats"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Session Seats (Admin) - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{invalidSession}}/reset-seats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{invalidSession}}",
+								"reset-seats"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Session Seats (Admin) - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}/reset-seats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}",
+								"reset-seats"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Session Seats (Admin) - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}/reset-seats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}",
+								"reset-seats"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Session - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Session - 409",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Session - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{invalidSession}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{invalidSession}}"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Session - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Session - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Session - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						},
+						"description": "Reseta todos os assentos de uma sessão para o estado 'disponível'. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new session - 201",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Captura o corpo da resposta\r",
+									"let responseData = pm.response.json();\r",
+									"\r",
+									"// Verifica se existe _id e salva na variável de ambiente\r",
+									"if (responseData._id) {\r",
+									"  pm.environment.set(\"sessionId\", responseData._id);\r",
+									"  console.log(\"✅ sessionId salvo:\", responseData._id);\r",
+									"} else {\r",
+									"  console.log(\"⚠️ _id não encontrado na resposta.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:23:07.176Z\",\r\n  \"fullPrice\": 10,\r\n  \"halfPrice\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new session - 409",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:23:07.176Z\",\r\n  \"fullPrice\": 10,\r\n  \"halfPrice\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new session - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{invalidMovieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:23:07.176Z\",\r\n  \"fullPrice\": 10,\r\n  \"halfPrice\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new session - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:23:07.176Z\",\r\n  \"fullPrice\": 10,\r\n  \"halfPrice\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new session - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:23:07.176Z\",\r\n  \"fullPrice\": 10,\r\n  \"halfPrice\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new session - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401\r",
+									"    );\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:23:07.176Z\",\r\n  \"fullPrice\": 10,\r\n  \"halfPrice\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Session - 200",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Session - 409",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Session - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Session - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{sessionId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{sessionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Session - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movie\": \"{{movieId}}\",\r\n  \"theater\": \"{{theaterId}}\",\r\n  \"datetime\": \"2025-06-30T18:59:31.880Z\",\r\n  \"fullPrice\": 20,\r\n  \"halfPrice\": 7\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/sessions/{{invalidSession}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sessions",
+								"{{invalidSession}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gerenciamento de sessões de filmes."
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "Create Reservation - 201",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"session\": \"{{sessionId}}\",\n    \"seats\": [\n        {\n            \"row\": \"A\",\n            \"number\": 1,\n            \"type\": \"full\"\n        },\n        {\n            \"row\": \"A\",\n            \"number\": 2,\n            \"type\": \"half\"\n        }\n    ],\n    \"paymentMethod\": \"credit_card\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						},
+						"description": "Cria uma nova reserva para o usuário autenticado. Antes de rodar, garanta que os assentos (ex: A1, A2) estejam disponíveis. Se falhar, use o endpoint 'Reset Session Seats (Admin)' e tente novamente."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Reservation - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"session\": \"{{invalidSession}}\",\n    \"seats\": [\n        {\n            \"row\": \"A\",\n            \"number\": 1,\n            \"type\": \"full\"\n        },\n        {\n            \"row\": \"A\",\n            \"number\": 2,\n            \"type\": \"half\"\n        }\n    ],\n    \"paymentMethod\": \"credit_card\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						},
+						"description": "Cria uma nova reserva para o usuário autenticado. Antes de rodar, garanta que os assentos (ex: A1, A2) estejam disponíveis. Se falhar, use o endpoint 'Reset Session Seats (Admin)' e tente novamente."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Reservation - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"session\": \"{{sessionId}}\",\n    \"seats\": [\n        {\n            \"row\": \"A\",\n            \"number\": 1,\n            \"type\": \"full\"\n        },\n        {\n            \"row\": \"A\",\n            \"number\": 2,\n            \"type\": \"half\"\n        }\n    ],\n    \"paymentMethod\": \"credit_card\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						},
+						"description": "Cria uma nova reserva para o usuário autenticado. Antes de rodar, garanta que os assentos (ex: A1, A2) estejam disponíveis. Se falhar, use o endpoint 'Reset Session Seats (Admin)' e tente novamente."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Reservation - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"session\": \"{{sessionId}}\",\n    \"seats\": [\n        {\n            \"row\": \"A\",\n            \"number\": 1,\n            \"type\": \"\"\n        },\n        {\n            \"row\": \"A\",\n            \"number\": 2,\n            \"type\": \"half\"\n        }\n    ],\n    \"paymentMethod\": \"credit_card\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						},
+						"description": "Cria uma nova reserva para o usuário autenticado. Antes de rodar, garanta que os assentos (ex: A1, A2) estejam disponíveis. Se falhar, use o endpoint 'Reset Session Seats (Admin)' e tente novamente."
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Reservations - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations/{{reservationId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"{{reservationId}}"
+							]
+						},
+						"description": "Busca todas as reservas feitas pelo usuário autenticado."
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Reservations - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations/{{reservationId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"{{reservationId}}"
+							]
+						},
+						"description": "Busca todas as reservas feitas pelo usuário autenticado."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reservations (Admin) - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						},
+						"description": "Busca todas as reservas do sistema. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reservations (Admin) - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						},
+						"description": "Busca todas as reservas do sistema. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reservations (Admin) - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/reservations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations"
+							]
+						},
+						"description": "Busca todas as reservas do sistema. Requer autenticação de Admin."
+					},
+					"response": []
+				},
+				{
+					"name": "Update reservation (Admin) - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"pending\",\r\n  \"paymentStatus\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations/{{reservationId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"{{reservationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update reservation (Admin) - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"pending\",\r\n  \"paymentStatus\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations/{{invalidReservationId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"{{invalidReservationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update reservation (Admin) - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"pending\",\r\n  \"paymentStatus\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations/{{reservationId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"{{reservationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update reservation (Admin) - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"pending\",\r\n  \"paymentStatus\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations/{{reservationId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"{{reservationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update reservation (Admin) - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"status\",\r\n  \"paymentStatus\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/reservations/{{reservationId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"reservations",
+								"{{reservationId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para criar e gerenciar reservas. Requer autenticação."
+		},
+		{
+			"name": "Theaters",
+			"item": [
+				{
+					"name": "Get All Theaters - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response should be an array of theaters\", function () {",
+									"    const responseData = pm.response.json();",
+									"    pm.expect(responseData.success).to.be.true;",
+									"    pm.expect(responseData.data).to.be.an('array');",
+									"    if (responseData.data.length > 0) {",
+									"        pm.collectionVariables.set(\"theaterId\", responseData.data[0]._id);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters"
+							]
+						},
+						"description": "Busca todas as salas de cinema. Salva o ID da primeira sala na variável `theaterId`."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Theater By ID - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						},
+						"description": "Busca detalhes de uma sala de cinema específica."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Theater By ID - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{invalidTheaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{invalidTheaterId}}"
+							]
+						},
+						"description": "Busca detalhes de uma sala de cinema específica."
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new theater - 201",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Salvar theaterId da resposta\", function () {\r",
+									"    const response = pm.response.json();\r",
+									"    \r",
+									"    // Garante que a resposta é um objeto com _id\r",
+									"    if (response && response._id) {\r",
+									"        pm.collectionVariables.set(\"theaterId\", response._id);\r",
+									"        console.log(\"✅ theaterId salvo com sucesso:\", response._id);\r",
+									"    } else {\r",
+									"        console.warn(\"⚠️ _id não encontrado na resposta.\");\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"\r",
+									"let response = pm.response.json();\r",
+									"console.log(\"Resposta:\", response);\r",
+									"\r",
+									"if (response.data && response.data.name) {\r",
+									"    pm.environment.set(\"theaterName\", response.data.name);\r",
+									"    console.log(\"Nome do teatro salvo:\", response.data.name);\r",
+									"} else {\r",
+									"    console.log(\"Nome do teatro não encontrado na resposta.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sala teste{{$randomInt}}\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new theater - 409",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Salvar theaterId da resposta\", function () {\r",
+									"    const response = pm.response.json();\r",
+									"    \r",
+									"    // Garante que a resposta é um objeto com _id\r",
+									"    if (response && response._id) {\r",
+									"        pm.collectionVariables.set(\"theaterId\", response._id);\r",
+									"        console.log(\"✅ theaterId salvo com sucesso:\", response._id);\r",
+									"    } else {\r",
+									"        console.warn(\"⚠️ _id não encontrado na resposta.\");\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{theaterName}}\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new theater - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Salvar theaterId da resposta\", function () {\r",
+									"    const response = pm.response.json();\r",
+									"    \r",
+									"    // Garante que a resposta é um objeto com _id\r",
+									"    if (response && response._id) {\r",
+									"        pm.collectionVariables.set(\"theaterId\", response._id);\r",
+									"        console.log(\"✅ theaterId salvo com sucesso:\", response._id);\r",
+									"    } else {\r",
+									"        console.warn(\"⚠️ _id não encontrado na resposta.\");\r",
+									"    }\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sala teste{{$randomInt}}\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new theater - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Salvar theaterId da resposta\", function () {\r",
+									"    const response = pm.response.json();\r",
+									"    \r",
+									"    // Garante que a resposta é um objeto com _id\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"        pm.response.to.have.status(400);\r",
+									"    });\r",
+									"    if (response && response._id) {\r",
+									"        pm.collectionVariables.set(\"theaterId\", response._id);\r",
+									"        console.log(\"✅ theaterId salvo com sucesso:\", response._id);\r",
+									"    } else {\r",
+									"        console.warn(\"⚠️ _id não encontrado na resposta.\");\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Theater - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sala teste{{$randomInt}}\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Theater - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sala teste{{$randomInt}}\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{invalidTheaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{invalidTheaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Theater - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sala teste{{$randomInt}}\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Theater - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"capacity\": 1,\r\n  \"type\": \"standard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Theater - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"\",\r\n  \"capacity\": 0,\r\n  \"type\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a theater - 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a theater - 409 - testar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a theater - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a theater - 404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a theater - 401",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/theaters/{{theaterId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"theaters",
+								"{{theaterId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Setup",
+			"item": [
+				{
+					"name": "Create an admin user (Admin) - 201",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Admin User\",\r\n  \"email\": \"admin@example{{$randomInt}}.com\",\r\n  \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/setup/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"setup",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an admin user (Admin) - 403",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{usuario_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Admin User\",\r\n  \"email\": \"admin@example{{$randomInt}}.com\",\r\n  \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/setup/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"setup",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an admin user (Admin) - 400",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Admin User\",\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/setup/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"setup",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{usuario_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "register",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_nome",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_email",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_senha",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "usuario_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "usuario_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_email_final",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "user_senha_final",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "usuario_email_final",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "usuario_senha_final",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": ""
+		},
+		{
+			"key": "movieId",
+			"value": ""
+		},
+		{
+			"key": "newMovieId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "sessionId",
+			"value": ""
+		},
+		{
+			"key": "theaterId",
+			"value": ""
+		},
+		{
+			"key": "invalidMovieId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "invalidSession",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "reservationId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "invalidReservationId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "theaterName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "invalidTheaterId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "invalidUserId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
